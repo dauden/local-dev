@@ -1,0 +1,15 @@
+  redis:
+    image: redis:7.0.11-alpine
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+    volumes:
+      - ~/datalocal/redis:/data
+    ports:
+      - "6379:6379"
+    networks:
+      - devlocal

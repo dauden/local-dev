@@ -1,0 +1,12 @@
+  pgadmin4:
+    image: dpage/pgadmin4:latest
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+    volumes:
+      - /Volumes/Working/datalocal/pgadmin:/var/lib/pgadmin
+    ports:
+      - 53603:53603
+      - 8081:80
+    networks:
+      - devlocal

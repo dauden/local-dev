@@ -1,0 +1,8 @@
+  elasticsearch:
+    image: elasticsearch:7.16.3
+    ports: 
+     - "9200:9200"
+    env_file:
+      - ~/datalocal/elasticsearch/elasticsearch.env
+    volumes:
+      - ~/datalocal/elasticsearch:/usr/share/elasticsearch/data

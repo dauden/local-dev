@@ -1,0 +1,8 @@
+  kibana:
+    image: kibana:7.16.3
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+    depends_on:
+      - elasticsearch
+    ports:
+      - 5601:5601

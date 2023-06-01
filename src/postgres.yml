@@ -1,0 +1,14 @@
+  postgres:
+    image: postgres:15.3-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USERNAME}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - ~/datalocal/postgres:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    deploy:
+      placement:
+        constraints: [ node.role == manager ]
+    networks:
+      - devlocal

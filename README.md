@@ -6,29 +6,19 @@ Repo URL:  https://github.com/dauden/local-dev
 
 Clone code from repo.
 
-Open local-stack.yml un-comment service which you want to run in local, and you can change your owner user and password for each service.
 
-> ⚠️ Default just turn 3 services 
-    - Postgres
-    - Redis 
-    - pgadmin4
-> 
-
-eg: 
-
-```yaml
-MYSQL_ROOT_PASSWORD: "admin"
-MYSQL_DATABASE: "test"
-```
-
-create data directory for local stack. 
+Run shell script and select your options to deply service in your local with docker stack.
 
 ```bash
 $ sh ./setup.sh
 ```
 
-then deploy you local stack
+If you got error with `docker swarm init` please try init swarm first.
 
+```bash
+$ docker swarm init 
+```
+then try again with command
 ```bash
 $ docker stack deploy -c ./stack-mysql.yml [your_stack_name]
 $ #Eg: docker stack deploy -c ./stack-mysql.yml LOCAL_DEV

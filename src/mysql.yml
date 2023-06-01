@@ -1,0 +1,12 @@
+  mysql:
+    image: mysql:8.0.32
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: "test"
+    volumes:
+      - ~/datalocal/mysql:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - devlocal
