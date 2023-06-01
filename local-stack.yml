@@ -1,19 +1,20 @@
 version: '3.1'
 
 services:
-  mysql:
-    image: mysql:8.0.32
-    container_name: mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: "admin"
-      MYSQL_DATABASE: "test"
-    volumes:
-      - ~/datalocal/mysql_data:/var/lib/mysql
-    restart: always
-    ports:
-      - "3306:3306"
-    networks:
-      - devlocal
+  # mysql:
+  #   image: mysql:8.0.32
+  #   container_name: mysql
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: "admin"
+  #     MYSQL_DATABASE: "test"
+  #   volumes:
+  #     - ~/datalocal/mysql_data:/var/lib/mysql
+  #   restart: always
+  #   ports:
+  #     - "3306:3306"
+  #   networks:
+  #     - devlocal
+  
   postgres:
     image: postgres:14.2-alpine
     environment:
@@ -28,6 +29,7 @@ services:
         constraints: [ node.role == manager ]
     networks:
       - devlocal
+  
   redis:
     image: redis:6.2.6-alpine
     deploy:
@@ -66,18 +68,18 @@ services:
   #   ports:
   #     - 8080:8080
 
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    container_name: pma
-    links:
-      - mysql
-    environment:
-      PMA_HOST: mysql
-      PMA_PORT: 3306
-      PMA_ARBITRARY: 1
-    restart: always
-    ports:
-      - 8082:80
+  # phpmyadmin:
+  #   image: phpmyadmin/phpmyadmin
+  #   container_name: pma
+  #   links:
+  #     - mysql
+  #   environment:
+  #     PMA_HOST: mysql
+  #     PMA_PORT: 3306
+  #     PMA_ARBITRARY: 1
+  #   restart: always
+  #   ports:
+  #     - 8082:80
 
   pgadmin4:
     image: dpage/pgadmin4:6.8
