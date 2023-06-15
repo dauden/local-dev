@@ -5,7 +5,7 @@
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: "test"
     volumes:
-      - ~/datalocal/mysql:/var/lib/mysql
+      - ${ROOT_DIR}/mysql:/var/lib/mysql
     ports:
       - "3306:3306"
     networks:

@@ -3,6 +3,6 @@
     ports: 
      - "9200:9200"
     env_file:
-      - ~/datalocal/elasticsearch/elasticsearch.env
+      - ${ROOT_DIR}/elasticsearch/elasticsearch.env
     volumes:
-      - ~/datalocal/elasticsearch:/usr/share/elasticsearch/data
+      - ${ROOT_DIR}/elasticsearch:/usr/share/elasticsearch/data

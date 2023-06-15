@@ -1,0 +1,9 @@
+  gitlab-runner:
+    image: gitlab/gitlab-runner:alpine
+    volumes:
+      - ${ROOT_DIR}/gitlab-runner/config:/etc/gitlab-runner
+      - ${ROOT_DIR}/gitlab-runner/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 8093:8093
+    networks:
+      - devlocal

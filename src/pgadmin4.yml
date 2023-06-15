@@ -4,7 +4,7 @@
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
     volumes:
-      - /Volumes/Working/datalocal/pgadmin:/var/lib/pgadmin
+      - ${ROOT_DIR}//pgadmin:/var/lib/pgadmin
     ports:
       - 53603:53603
       - 8081:80

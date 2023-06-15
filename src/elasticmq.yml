@@ -1,0 +1,6 @@
+  elasticmq:
+    image: softwaremill/elasticmq:1.4.1
+    volumes:
+      - ${ROOT_DIR}/elasticmq/elasticmq.conf:/opt/elasticmq.conf
+    ports:
+      - 9324:9324
