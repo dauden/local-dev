@@ -26,6 +26,8 @@ $ #Eg: docker stack deploy -c ./stack-mysql.yml LOCAL_DEV
 
 DONE: 
 
+Hasura work on port: 8083, at [http://localhost:8083](http://localhost:8083/)
+
 PGAdmin4 work on port: 8081, at [http://localhost:8081](http://localhost:8081/)
 
 Redis work on port: 6379
