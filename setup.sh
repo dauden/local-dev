@@ -3,7 +3,7 @@
 export STACK_NAME=LOCAL_DEV
 
 export ROOT_DIR=~/datalocal
-declare -a OPTIONS=("mysql" "postgres" "redis" "elasticsearch" "kibana" "phpmyadmin" "pgadmin4" "gitlab-runner" "elasticmq")
+declare -a OPTIONS=("mysql" "postgres" "redis" "elasticsearch" "kibana" "phpmyadmin" "pgadmin4" "gitlab-runner" "elasticmq" "hasura")
 declare -a SELECTED
 
 function createDir() {
@@ -75,6 +75,24 @@ function exportValue() {
 		read -r pgadmin4s_password
 		if [[ ! $pgadmin4s_password == "" ]]; then
 			export PGADMIN_DEFAULT_PASSWORD=$pgadmin4s_password
+		fi
+		;;
+	"hasura")
+		export HASURA_GRAPHQL_ADMIN_SECRET=admin
+		export HASURA_GRAPHQL_ENABLE_CONSOLE=true
+		export HASURA_GRAPHQL_DEV_MODE=true
+		export HASURA_GRAPHQL_ENABLED_LOG_TYPES=startup, http-log, webhook-log, websocket-log, query-log
+		export HASURA_GRAPHQL_METADATA_DATABASE_URL=postgres://admin:admin@host.docker.internal:5432/hasura
+		export HASURA_GRAPHQL_ENABLE_REMOTE_SCHEMA_PERMISSIONS=true
+		printf "Do you want to set hasura email? default is 'admin'"
+		read -r hasura_graphql_admin_secret
+		if [[ ! $hasura_graphql_admin_secret == "" ]]; then
+			export HASURA_GRAPHQL_ADMIN_SECRET=$hasura_graphql_admin_secret
+		fi
+		printf "Do you want to change hasura_graphql_metadata_database_url? default is 'postgres://admin:admin@host.docker.internal:5432/hasura'"
+		read -r hasura_graphql_metadata_database_url
+		if [[ ! $hasura_graphql_metadata_database_url == "" ]]; then
+			export HASURA_GRAPHQL_METADATA_DATABASE_URL=$hasura_graphql_metadata_database_url
 		fi
 		;;
 	esac

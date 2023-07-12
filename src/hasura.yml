@@ -1,0 +1,10 @@
+  hasura:
+    image: hasura/graphql-engine:v2.17.1
+    networks:
+      - devlocal
+    ports:
+      - "8083:8080"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ${ROOT_DIR}/hasura:/conf
