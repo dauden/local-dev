@@ -1,0 +1,5 @@
+hello() {
+    echo 'welcome zsh_function!'
+}
+
+hello

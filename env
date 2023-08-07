@@ -1,0 +1,30 @@
+HASURA_GRAPHQL_ADMIN_SECRET=admin
+
+HASURA_GRAPHQL_METADATA_DATABASE_URL=postgres://admin:admin@host.docker.internal:5432/hasura
+HASURA_GRAPHQL_ENABLE_CONSOLE=true
+HASURA_GRAPHQL_DEV_MODE=true
+HASURA_GRAPHQL_ENABLED_LOG_TYPES=startup, http-log, webhook-log, websocket-log, query-log
+HASURA_GRAPHQL_ENABLE_ALLOWLIST=false
+
+HASURA_GRAPHQL_ENABLE_TELEMETRY=false
+
+COMPOSE_PROJECT_NAME=hasura
+
+# EXTENDED HASURA ENV VARS
+
+# Enable remote schema permissions
+
+HASURA_GRAPHQL_ENABLE_REMOTE_SCHEMA_PERMISSIONS=true
+
+# JWT secret
+
+
+# Role name for anonymous users
+
+HASURA_GRAPHQL_UNAUTHORIZED_ROLE=anonymous
+
+HASURA_GRAPHQL_ACTION_BASE_URL=https://saturn.dev.ringkas.co.id
+
+ACTION_BASE_URL=https://saturn.dev.ringkas.co.id
+
+HASURA_GRAPHQL_DATABASE_URL=postgres://admin:admin@host.docker.internal:5432/ringkas

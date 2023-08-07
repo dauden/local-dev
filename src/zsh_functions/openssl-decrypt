@@ -1,0 +1,5 @@
+openssl-decrypt() {
+    openssl enc -aes-256-cbc -md sha512 -pbkdf2 -iter 100000 -salt -d -in ${1} -out ${2}
+}
+
+openssl-decrypt
