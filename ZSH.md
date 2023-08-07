@@ -5,7 +5,7 @@ How to define and load your own shell function in zsh
 ## Add custom function to your zsh
 
 ```shell
-$ cd ./zsh_function/init
+$ cd ./src/zsh_function
 $ sh init.sh 'your_local_path'
 # example: /Volumes/Working/local-dev/src/zsh_functions
 ```
@@ -25,7 +25,7 @@ $ openssl-decryp your_file_path your_file_path_decrypted
 # example: openssl-decrypt text.txt.encrypted text.txt
 ```
 
-## Create new function
+## Create your new function
 
 Create your function then save file in `src/zsh_functions` with name is the same with your function name.
 
