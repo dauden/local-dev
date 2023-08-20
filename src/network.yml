@@ -1,3 +1,4 @@
 
 networks:
   devlocal:
+    external: true

@@ -8,3 +8,4 @@
       - "host.docker.internal:host-gateway"
     volumes:
       - ${ROOT_DIR}/hasura:/conf
+    env_file: env
