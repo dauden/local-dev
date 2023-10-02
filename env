@@ -31,12 +31,14 @@ ACTION_BASE_URL=https://saturn.dev.ringkas.co.id
 
 HASURA_GRAPHQL_DATABASE_URL=postgres://admin:admin@host.docker.internal:5432/ringkas
 
+SATURN_ADMIN_SECRET=UBWX.VmoMA6FG*!VGMKyW6AETi8@.L
 
-DIONE_ACTION_BASE_URL=http://host.docker.internal:5702/local
-ENCELADUS_ACTION_BASE_URL=http://host.docker.internal:5102/local
-EPIMETHEUS_ACTION_BASE_URL=http://host.docker.internal:5302/local
-HYPERION_ACTION_BASE_URL=http://host.docker.internal:5202/local
-MIMAS_ACTION_BASE_URL=http://host.docker.internal:5402/local
-RHEA_ACTION_BASE_URL=http://host.docker.internal:5002/local
-TETHYS_ACTION_BASE_URL=http://host.docker.internal:5502/local
-TITAN_ACTION_BASE_URL=http://host.docker.internal:5602/local
+DIONE_BASE_URL=http://host.docker.internal:5702/local
+ENCELADUS_BASE_URL=http://host.docker.internal:5102/local
+EPIMETHEUS_BASE_URL=http://host.docker.internal:5302/local
+HYPERION_BASE_URL=http://host.docker.internal:5202/local
+MIMAS_BASE_URL=http://host.docker.internal:5402/local
+RHEA_BASE_URL=http://host.docker.internal:5002/local
+TETHYS_BASE_URL=http://host.docker.internal:5502/local
+TITAN_BASE_URL=http://host.docker.internal:5602/local
+IAPETUS_BASE_URL=http://host.docker.internal:5801/local
