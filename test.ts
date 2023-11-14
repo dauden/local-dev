@@ -1,5 +1,5 @@
-import { A } from './help.ts'
+import { B } from './help.ts'
 
 const x = {
-  a: A
+  a: B
 }

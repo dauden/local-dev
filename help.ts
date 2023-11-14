@@ -1,3 +1,3 @@
-export const A = () => {
+export const B = () => {
   return 1
 }
