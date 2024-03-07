@@ -1,0 +1,14 @@
+  localstack:
+    image: localstack/localstack:latest
+    ports:
+      - "4566:4566"
+      - "4510-4559:4510-4559"
+    networks:
+      - devlocal
+    environment:
+      - DEBUG=${DEBUG:-0}
+      - PERSISTENCE=1
+      - ALLOW_NONSTANDARD_REGIONS=1
+    volumes:
+      - "${ROOT_DIR}/localstack:/var/lib/localstack"
+      - "/var/run/docker.sock:/var/run/docker.sock"

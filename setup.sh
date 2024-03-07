@@ -3,7 +3,7 @@
 export STACK_NAME=LOCAL_DEV
 
 export ROOT_DIR=~/datalocal
-declare -a OPTIONS=("mysql" "postgres" "redis" "elasticsearch" "kibana" "phpmyadmin" "pgadmin4" "gitlab-runner" "elasticmq" "hasura")
+declare -a OPTIONS=("mysql" "postgres" "redis" "elasticsearch" "kibana" "phpmyadmin" "pgadmin4" "gitlab-runner" "elasticmq" "hasura" "localstack")
 declare -a SELECTED
 
 function createDir() {
