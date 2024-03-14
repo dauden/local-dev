@@ -34,7 +34,7 @@ function createDir() {
 			fi
 		fi
 
-		cat ./src/${j}.yml >>local-stack.yml
+		cat ./src/yaml/${j}.yml >>local-stack.yml
 	done
 }
 
@@ -118,13 +118,13 @@ fi
 
 rm -rf local-stack.yml
 
-cat ./src/local-stack.yml >>local-stack.yml
+cat ./src/yaml/local-stack.yml >>local-stack.yml
 
 selectedOptions
 
 createDir
 
-cat ./src/network.yml >>local-stack.yml
+cat ./src/yaml/network.yml >> local-stack.yml
 
 printf "Give local stack name? Defaul is 'LOCAL_DEV' \n"
 

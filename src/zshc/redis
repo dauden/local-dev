@@ -1,0 +1,6 @@
+
+redis () {
+    docker exec -it $(docker ps -qf name=^DEV_LOCAL_redis) redis-cli;
+}
+
+redis
