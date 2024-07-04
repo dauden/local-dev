@@ -1,6 +1,9 @@
   postgres:
     image: postgres:15.3-alpine
+    command: postgres -c max_connections=1000
     environment:
+      TZ: 'GMT+0'
+      PGTZ: 'GMT+0'
       POSTGRES_USER: ${POSTGRES_USERNAME}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:

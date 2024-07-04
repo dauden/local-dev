@@ -1,10 +1,10 @@
   pgadmin4:
-    image: dpage/pgadmin4:8.4
+    image: dpage/pgadmin4:8.9
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
     volumes:
-      - ${ROOT_DIR}/pgadmin4:/var/lib/pgadmin
+      - ${ROOT_DIR}/pgadmin:/var/lib/pgadmin
     ports:
       - 53603:53603
       - 8081:80
