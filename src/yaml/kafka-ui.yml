@@ -1,0 +1,20 @@
+  kafka-ui:
+    container_name: kafka-ui
+    image: provectuslabs/kafka-ui:latest
+    ports:
+      - 3333:8080 # Changed to avoid port clash with akhq
+    depends_on:
+      - kafka1
+      - kafka2
+      - kafka3
+      - schema-registry
+      - connect
+    environment:
+      KAFKA_CLUSTERS_0_NAME: local
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: 'kafka1:29092,kafka2:29092,kafka3:29092'
+      KAFKA_CLUSTERS_0_SCHEMAREGISTRY: http://host.docker.internal:9082
+      KAFKA_CLUSTERS_0_KAFKACONNECT_0_NAME: connect
+      KAFKA_CLUSTERS_0_KAFKACONNECT_0_ADDRESS: http://host.docker.internal:9083
+      DYNAMIC_CONFIG_ENABLED: 'true'
+    networks:
+      - devlocal

@@ -1,0 +1,16 @@
+  schema-registry:
+    image: confluentinc/cp-schema-registry
+    container_name: schema-registry
+    hostname: schema-registry
+    ports:
+      - "9082:8082"
+    environment:
+      SCHEMA_REGISTRY_HOST_NAME: schema-registry
+      SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: 'kafka1:29092,kafka2:29092,kafka3:29092'
+      SCHEMA_REGISTRY_LISTENERS: 'http://0.0.0.0:8082'
+    depends_on:
+      - kafka1
+      - kafka2
+      - kafka3
+    networks:
+      - devlocal

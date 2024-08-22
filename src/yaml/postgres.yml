@@ -1,6 +1,6 @@
   postgres:
-    image: postgres:15.3-alpine
-    command: postgres -c max_connections=1000
+    image: postgres:16.1-alpine
+    command: postgres -c max_connections=1000 -c wal_level=logical
     environment:
       TZ: 'GMT+0'
       PGTZ: 'GMT+0'

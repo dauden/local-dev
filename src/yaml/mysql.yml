@@ -1,5 +1,5 @@
   mysql:
-    image: mysql:8.0.32
+    image: mysql:9.0.1
     container_name: mysql
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}

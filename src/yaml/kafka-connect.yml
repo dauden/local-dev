@@ -1,0 +1,17 @@
+  connect:
+    image: quay.io/debezium/connect:latest
+    ports:
+      - 9083:8083
+    depends_on:
+      - kafka1
+      - kafka2
+      - kafka3
+    environment:
+      - BOOTSTRAP_SERVERS=kafka1:29092,kafka2:29092,kafka3:29092
+      - GROUP_ID=1
+      - CONFIG_STORAGE_TOPIC=my_connect_configs
+      - OFFSET_STORAGE_TOPIC=my_connect_offsets
+      - STATUS_STORAGE_TOPIC=my_connect_statuses
+    networks:
+      - devlocal
+

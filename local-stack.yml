@@ -1,0 +1,30 @@
+version: '3.1'
+
+services:
+  wordpress:
+    image: wordpress:6.6.1
+    ports:
+      - 8085:80
+    environment:
+      WORDPRESS_DB_HOST: ${WORDPRESS_DB_HOST}
+      WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
+      WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
+      WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
+      WORDPRESS_DEBUG: 1
+    volumes:
+      - ${ROOT_DIR}/wordpress:/var/www/html
+      - ${ROOT_DIR}/wordpress/000-default.conf:/etc/apache2/sites-available/000-default.conf
+    networks:
+      - devlocal
+  phpmyadmin:
+    image: phpmyadmin:5.2.1
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    ports:
+      - 8086:80
+    networks:
+      - devlocal
+networks:
+  devlocal:
