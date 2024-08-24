@@ -24,6 +24,11 @@ $ docker stack deploy -c ./stack-mysql.yml [your_stack_name]
 $ #Eg: docker stack deploy -c ./stack-mysql.yml LOCAL_DEV
 ```
 
+```bash
+$ export $(cat .env.local_dev) > /dev/null 2>&1;  docker stack deploy -c ./stack-mysql.yml [your_stack_name]
+$ #Eg: export $(cat .env.local_dev) > /dev/null 2>&1; docker stack deploy -c ./stack-mysql.yml LOCAL_DEV
+```
+
 DONE: 
 
 Hasura work on port: 8083, at [http://localhost:8083](http://localhost:8083/)
