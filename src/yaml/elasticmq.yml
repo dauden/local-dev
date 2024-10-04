@@ -1,5 +1,5 @@
   elasticmq:
-    image: softwaremill/elasticmq:1.5.4
+    image: softwaremill/elasticmq-native:1.5.7
     volumes:
       - ${ROOT_DIR}/elasticmq/elasticmq.conf:/opt/elasticmq.conf
     ports:

@@ -1,5 +1,5 @@
   pgadmin4:
-    image: dpage/pgadmin4:8.10
+    image: dpage/pgadmin4:8.12
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}

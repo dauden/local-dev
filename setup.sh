@@ -3,7 +3,7 @@
 export STACK_NAME=LOCAL_DEV
 
 export ROOT_DIR=~/datalocal
-declare -a OPTIONS=("mysql" "postgres" "redis" "elasticsearch" "kibana" "phpmyadmin" "pgadmin4" "gitlab-runner" "elasticmq" "hasura")
+declare -a OPTIONS=("mysql" "postgres" "redis" "elasticsearch" "kibana" "phpmyadmin" "pgadmin4" "gitlab-runner" "elasticmq" "hasura" "localstack")
 declare -a SELECTED
 
 function createDir() {
@@ -81,7 +81,7 @@ function exportValue() {
 		export HASURA_GRAPHQL_ADMIN_SECRET=admin
 		export HASURA_GRAPHQL_ENABLE_CONSOLE=true
 		export HASURA_GRAPHQL_DEV_MODE=true
-		export HASURA_GRAPHQL_ENABLED_LOG_TYPES=startup, http-log, webhook-log, websocket-log, query-log
+		export HASURA_GRAPHQL_ENABLED_LOG_TYPES="startup, http-log, webhook-log, websocket-log, query-log"
 		export HASURA_GRAPHQL_METADATA_DATABASE_URL=postgres://admin:admin@host.docker.internal:5432/hasura
 		export HASURA_GRAPHQL_ENABLE_REMOTE_SCHEMA_PERMISSIONS=true
 		printf "Do you want to set hasura email? default is 'admin'"
