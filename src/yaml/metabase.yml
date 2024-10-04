@@ -1,12 +1,11 @@
-version: '3.9'
-
-services:
   metabase:
-    image: stephaneturquay/metabase-arm64:latest
+    image: metabase/metabase:latest
+    container_name: metabase
+    hostname: metabase
     volumes:
       - ${ROOT_DIR}/metabase:/dev/random:ro
     ports:
-      - "${PORT:-3100}:${PORT:-3000}"
+      - 3100:3000
     environment:
       MB_DB_TYPE: postgres
       MB_DB_DBNAME: metabase
@@ -14,8 +13,10 @@ services:
       MB_DB_USER: admin
       MB_DB_PASS: admin
       MB_DB_HOST: host.docker.internal
+    healthcheck:
+      test: curl --fail -I http://localhost:3100/api/health || exit 1
+      interval: 15s
+      timeout: 5s
+      retries: 5
     networks:
       - devlocal
-
-networks:
-  devlocal:

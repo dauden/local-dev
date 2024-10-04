@@ -1,0 +1,10 @@
+  wireguard:
+    image: linuxserver/wireguard:version-v1.0.20210914
+    container_name: wireguard
+    environment:
+    volumes:
+      - ${ROOT_DIR}/wireguard:/etc/wireguard
+    ports:
+      - "51820:51820"
+    networks:
+      - devlocal

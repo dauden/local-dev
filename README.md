@@ -20,12 +20,12 @@ $ docker swarm init
 ```
 then try again with command
 ```bash
-$ docker stack deploy -c ./stack-mysql.yml [your_stack_name]
-$ #Eg: docker stack deploy -c ./stack-mysql.yml LOCAL_DEV
+$ docker stack deploy -c [Your file] [your_stack_name]
+$ #Eg: docker stack deploy -c ./local-stack.yml LOCAL_DEV
 ```
 
 ```bash
-$ export $(cat .env.local_dev) > /dev/null 2>&1;  docker stack deploy -c ./local-stack.yml [your_stack_name]
+$ export $(cat .env.local_dev) > /dev/null 2>&1;  docker stack deploy -c [Your file] [your_stack_name]
 $ #Eg: export $(cat .env.local_dev) > /dev/null 2>&1; docker stack deploy -c ./local-stack.yml LOCAL_DEV
 ```
 
