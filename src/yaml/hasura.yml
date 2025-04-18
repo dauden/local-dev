@@ -2,6 +2,9 @@
     image: hasura/graphql-engine:v2.17.1
     networks:
       - devlocal
+    depends_on:
+      postgres:
+        condition: service_healthy
     ports:
       - "8083:8080"
     extra_hosts:

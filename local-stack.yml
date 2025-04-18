@@ -1,0 +1,21 @@
+version: '3.1'
+services:
+  postgres:
+    image: postgres:16.2-alpine3.19
+    command: postgres -c max_connections=1000
+    environment:
+      TZ: 'GMT+0'
+      PGTZ: 'GMT+0'
+      POSTGRES_USER: ${POSTGRES_USERNAME}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - ${ROOT_DIR}/postgres:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    deploy:
+      placement:
+        constraints: [ node.role == manager ]
+    networks:
+      - devlocal
+networks:
+  devlocal:
