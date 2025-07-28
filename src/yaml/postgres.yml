@@ -1,5 +1,5 @@
   postgres:
-    image: postgres:16.2-alpine3.19
+    image: postgres:17.5-alpine3.22
     command: postgres -c max_connections=1000
     environment:
       TZ: 'GMT+0'

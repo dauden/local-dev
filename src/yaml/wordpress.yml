@@ -1,0 +1,16 @@
+  wordpress:
+    image: wordpress:latest
+    container_name: wordpress
+    volumes:
+      - ${ROOT_DIR}/wordpress:/var/www/html/wp-content
+    environment:
+      - WORDPRESS_DB_NAME=ringkas
+      - WORDPRESS_TABLE_PREFIX=wp_
+      - WORDPRESS_DB_HOST=host.docker.internal
+      - WORDPRESS_DB_USER=root
+      - WORDPRESS_DB_PASSWORD=${MYSQL_ROOT_PASSWORD}
+    depends_on:
+      - phpmyadmin
+    restart: always
+    ports:
+      - 8080:80

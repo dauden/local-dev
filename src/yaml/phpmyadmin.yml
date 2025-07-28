@@ -1,11 +1,10 @@
   phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    container_name: pma
-    links:
-      - mysql
+    image: phpmyadmin
     environment:
-      PMA_HOST: mysql
-      PMA_PORT: 3306
-      PMA_ARBITRARY: 1
+      PMA_HOST: host.docker.internal
     ports:
       - 8082:80
+    volumes:
+      - ${ROOT_DIR}/phpmyadmin:/etc/phpmyadmin
+    networks:
+      - devlocal

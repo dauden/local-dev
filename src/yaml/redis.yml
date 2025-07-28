@@ -1,5 +1,5 @@
   redis:
-    image: redis:7.0.11-alpine
+    image: redis:8.0.3-alpine
     deploy:
       replicas: 1
       update_config:
