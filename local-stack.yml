@@ -1,4 +1,68 @@
 version: '3.1'
-
+services:
+  postgres:
+    image: postgres:17.5-alpine3.22
+    command: postgres -c max_connections=1000
+    environment:
+      TZ: 'GMT+0'
+      PGTZ: 'GMT+0'
+      POSTGRES_USER: ${POSTGRES_USERNAME}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - ${ROOT_DIR}/postgres:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    deploy:
+      placement:
+        constraints: [ node.role == manager ]
+    networks:
+      - devlocal
+  redis:
+    image: redis:8.0.3-alpine
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+    volumes:
+      - ${ROOT_DIR}/redis:/data
+    ports:
+      - "6379:6379"
+    networks:
+      - devlocal
+  elasticmq:
+    image: softwaremill/elasticmq-native:1.5.7
+    volumes:
+      - ${ROOT_DIR}/elasticmq/elasticmq.conf:/data/opt/elasticmq.conf
+    ports:
+      - 9324:9324
+      - 9325:9325
+  pgadmin4:
+    image: dpage/pgadmin4:9.8.0
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+    volumes:
+      - ${ROOT_DIR}/pgadmin:/var/lib/pgadmin
+    ports:
+      - 53603:53603
+      - 8081:80
+    networks:
+      - devlocal
+  hasura:
+    image: hasura/graphql-engine:v2.33.4
+    networks:
+      - devlocal
+    depends_on:
+      - postgres
+    ports:
+      - "8083:8080"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ${ROOT_DIR}/hasura:/conf
+    env_file: .env
 networks:
   devlocal:
