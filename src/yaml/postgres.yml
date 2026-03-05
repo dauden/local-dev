@@ -1,5 +1,5 @@
   postgres:
-    image: postgres:17.5-alpine3.22
+    image: pgvector/pgvector:0.8.1-pg17-trixie
     command: postgres -c max_connections=1000
     environment:
       TZ: 'GMT+0'

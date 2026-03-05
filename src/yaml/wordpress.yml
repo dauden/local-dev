@@ -1,8 +1,10 @@
   wordpress:
-    image: wordpress:latest
+    image: wordpress:6.6.1
     container_name: wordpress
     volumes:
-      - ${ROOT_DIR}/wordpress:/var/www/html/wp-content
+      - ${ROOT_DIR}/wordpress/html:/var/www/html
+      - ${ROOT_DIR}/wordpress/php.ini:/usr/local/etc/php/conf.d/uploads.ini
+      - ${ROOT_DIR}/wordpress/uploads.conf:/etc/apache2/conf-enabled/uploads.conf
     environment:
       - WORDPRESS_DB_NAME=ringkas
       - WORDPRESS_TABLE_PREFIX=wp_
@@ -13,4 +15,6 @@
       - phpmyadmin
     restart: always
     ports:
-      - 8080:80
+      - 8085:80
+    networks:
+      - devlocal
